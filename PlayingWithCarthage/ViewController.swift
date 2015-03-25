@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,14 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func testFecth(sender: AnyObject) {
+    Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+      .response { (request, response, data, error) in
+        println(request)
+        println(response)
+        println(error)
+    }
+  }
 
 }
 
