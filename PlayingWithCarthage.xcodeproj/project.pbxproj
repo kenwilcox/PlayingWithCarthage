@@ -14,6 +14,7 @@
 		BE7B45E11AC361A6006F7ED7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7B45DF1AC361A6006F7ED7 /* LaunchScreen.xib */; };
 		BE7B45ED1AC361A6006F7ED7 /* PlayingWithCarthageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B45EC1AC361A6006F7ED7 /* PlayingWithCarthageTests.swift */; };
 		BE7B46011AC370A4006F7ED7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7B46001AC370A4006F7ED7 /* Alamofire.framework */; };
+		BE7B460C1AC37D85006F7ED7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7B460B1AC37D85006F7ED7 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		BE7B45FC1AC36FAF006F7ED7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		BE7B45FD1AC36FAF006F7ED7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE7B46001AC370A4006F7ED7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BE7B460B1AC37D85006F7ED7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7B460C1AC37D85006F7ED7 /* SwiftyJSON.framework in Frameworks */,
 				BE7B46011AC370A4006F7ED7 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +100,7 @@
 		BE7B45D41AC361A6006F7ED7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B460B1AC37D85006F7ED7 /* SwiftyJSON.framework */,
 				BE7B46001AC370A4006F7ED7 /* Alamofire.framework */,
 				BE7B45D51AC361A6006F7ED7 /* Info.plist */,
 			);
@@ -224,6 +228,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -441,6 +446,7 @@
 				BE7B45F21AC361A6006F7ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE7B45F31AC361A6006F7ED7 /* Build configuration list for PBXNativeTarget "PlayingWithCarthageTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +455,7 @@
 				BE7B45F51AC361A6006F7ED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
