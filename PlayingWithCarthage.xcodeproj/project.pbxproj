@@ -38,6 +38,8 @@
 		BE7B45EB1AC361A6006F7ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7B45EC1AC361A6006F7ED7 /* PlayingWithCarthageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingWithCarthageTests.swift; sourceTree = "<group>"; };
 		BE7B45F61AC36CED006F7ED7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		BE7B45FC1AC36FAF006F7ED7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		BE7B45FD1AC36FAF006F7ED7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 		BE7B45C81AC361A6006F7ED7 = {
 			isa = PBXGroup;
 			children = (
+				BE7B45FC1AC36FAF006F7ED7 /* LICENSE.md */,
+				BE7B45FD1AC36FAF006F7ED7 /* README.md */,
 				BE7B45F61AC36CED006F7ED7 /* Alamofire.framework */,
 				BE7B45D31AC361A6006F7ED7 /* PlayingWithCarthage */,
 				BE7B45E91AC361A6006F7ED7 /* PlayingWithCarthageTests */,
