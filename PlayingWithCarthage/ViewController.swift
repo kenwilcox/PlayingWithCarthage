@@ -91,6 +91,16 @@ extension ViewController: UITableViewDataSource {
     let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
     let inmate = self.inmateList[indexPath.row]
     cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
+    cell.detailTextLabel?.text = "Arrests: \(inmate.arrests.count)  Charges: \(inmate.charges.count)"
+    cell.imageView?.image = UIImage(named: "Placeholder.png")
+    println(inmate.thumbURL)
+    Alamofire.request(.GET, inmate.thumbURL).response() {
+      (_, _, data, _) in
+      
+      let image = UIImage(data: data! as NSData)
+      cell.imageView?.image = image
+    }
+    
     return cell
   }
   
@@ -106,8 +116,9 @@ extension ViewController: UITableViewDelegate {
 //  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
 //  }
   
-//  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//  }
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 64
+  }
   
 //  func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String {
 //  }
