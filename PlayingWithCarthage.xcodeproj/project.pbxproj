@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE6475DC1AC3B52000F4F543 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6475DB1AC3B52000F4F543 /* DetailViewController.swift */; };
 		BE7B45D71AC361A6006F7ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B45D61AC361A6006F7ED7 /* AppDelegate.swift */; };
 		BE7B45D91AC361A6006F7ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B45D81AC361A6006F7ED7 /* ViewController.swift */; };
 		BE7B45DC1AC361A6006F7ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7B45DA1AC361A6006F7ED7 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE6475DB1AC3B52000F4F543 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BE7B45D11AC361A6006F7ED7 /* PlayingWithCarthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayingWithCarthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7B45D51AC361A6006F7ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7B45D61AC361A6006F7ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				BE7B460F1AC38CF7006F7ED7 /* Model */,
 				BE7B45D61AC361A6006F7ED7 /* AppDelegate.swift */,
 				BE7B45D81AC361A6006F7ED7 /* ViewController.swift */,
+				BE6475DB1AC3B52000F4F543 /* DetailViewController.swift */,
 				BE7B45DA1AC361A6006F7ED7 /* Main.storyboard */,
 				BE7B45DD1AC361A6006F7ED7 /* Images.xcassets */,
 				BE7B45DF1AC361A6006F7ED7 /* LaunchScreen.xib */,
@@ -263,6 +266,7 @@
 				BE7B46111AC38D0C006F7ED7 /* Arrest.swift in Sources */,
 				BE7B45D91AC361A6006F7ED7 /* ViewController.swift in Sources */,
 				BE7B46131AC38D16006F7ED7 /* Charge.swift in Sources */,
+				BE6475DC1AC3B52000F4F543 /* DetailViewController.swift in Sources */,
 				BE7B45D71AC361A6006F7ED7 /* AppDelegate.swift in Sources */,
 				BE7B460E1AC38CF1006F7ED7 /* Inmate.swift in Sources */,
 			);

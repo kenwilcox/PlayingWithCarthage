@@ -69,6 +69,14 @@ class ViewController: UIViewController {
     }
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toDetail" {
+      if sender != nil {
+        var detailVC = segue.destinationViewController as DetailViewController
+        detailVC.inmate = sender as? Inmate
+      }
+    }
+  }
 }
 
 // MARK: UITableViewDataSource
@@ -85,13 +93,15 @@ extension ViewController: UITableViewDataSource {
     cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
     return cell
   }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    var inmate = self.inmateList[indexPath.row]
+    self.performSegueWithIdentifier("toDetail", sender: inmate)
+  }
 }
 
 // MARK: UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
   
 //  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
 //  }
