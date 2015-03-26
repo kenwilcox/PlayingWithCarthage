@@ -26,6 +26,7 @@ class ViewController: UIViewController {
   
   @IBAction func testFecth(sender: AnyObject) {
     var url = "http://api.canyonco.org/Sheriff/CurrentArrest"
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     Alamofire.request(.GET, url)
       .responseJSON { (request, response, data, error) in
         if error != nil {
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
           println(response)
         } else {
           NSLog("Success: \(url)")
+          UIApplication.sharedApplication().networkActivityIndicatorVisible = false
           var inmates = JSON(data!)
           
           for (index: String, json: JSON) in inmates {
