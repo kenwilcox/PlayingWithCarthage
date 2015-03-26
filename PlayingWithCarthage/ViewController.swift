@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
   
+  var inmateList: [Inmate] = []
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -24,11 +26,7 @@ class ViewController: UIViewController {
   
   @IBAction func testFecth(sender: AnyObject) {
     var url = "http://api.canyonco.org/Sheriff/CurrentArrest"
-    //Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue("application/json",forKey: "Accept")
-    
     Alamofire.request(.GET, url)
-      .validate(contentType: ["application/json"])
-      //.validate(Accept: ["application/json"])
       .responseJSON { (request, response, data, error) in
         if error != nil {
           NSLog("Error: \(error)")
@@ -36,21 +34,30 @@ class ViewController: UIViewController {
           println(response)
         } else {
           NSLog("Success: \(url)")
-//          println(request)
-//          println(response)
-          var json = JSON(data!)
-          //var name = json[0]["FirstName"].stringValue
-          //println("name = \(name)")
-//          for (key: String, subJson: JSON) in json {
-//            var name = subJson["FirstName"].stringValue
-//            println("name = \(name)")
-//          }
+          var inmates = JSON(data!)
           
-          println(json.rawValue)
+          for (index: String, json: JSON) in inmates {
+            var inmate = Inmate()
+            inmate.firstName = (json["FirstName"].stringValue as NSString).capitalizedString
+            inmate.lastName = (json["LastName"].stringValue as NSString).capitalizedString
+            inmate.middleName = (json["MiddleName"].stringValue as NSString).capitalizedString
+            inmate.vineURL = json["VineURL"].stringValue
+            inmate.imageURL = json["ImageFull"].stringValue
+            inmate.thumbURL = json["ImageThumb"].stringValue
+            
+            for (aIndex: String, arrest: JSON) in json["Arrests"] {
+              inmate.arrests.append(Arrest(Agency: arrest["Agency"].stringValue, ArrestDate: arrest["ArrestDate"].stringValue))
+            }
+            
+            for (cIndex: String, charge: JSON) in json["Charges"] {
+              inmate.charges.append(Charge(StatuteCode: charge["StatuteCode"].stringValue, StatuteDesc: charge["StatuteDesc"].stringValue))
+            }
+            self.inmateList.append(inmate)
+          }
           
-//          for (index: String, subJson: JSON) in json {
-//            println(subJson.rawValue)
-//          }
+          println(self.inmateList.count)
+          println(self.inmateList[0].arrests[0].arrestDate)
+          println("\(self.inmateList[0].charges[0].statuteCode)- \(self.inmateList[0].charges[0].statuteDesc)")
         }
     }
   }
