@@ -12,6 +12,7 @@ import Alamofire
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var detailText: UITextView!
   @IBOutlet weak var imageView: UIImageView!
   
   var inmate: Inmate!
@@ -21,7 +22,20 @@ class DetailViewController: UIViewController {
     
     // Do any additional setup after loading the view.
     if inmate != nil {
-      //nameLabel.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
+      nameLabel.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
+      
+      var detail = "Arrest:\n"
+      for (arrest:Arrest) in inmate.arrests {
+        detail += "\(arrest.arrestDate)\n"
+      }
+      
+      detail += "\nCharges:\n"
+      for (charge:Charge) in inmate.charges {
+        detail += "\(charge.statuteCode)\n\t\(charge.statuteDesc)\n"
+      }
+      detailText.text = detail
+      detailText.textColor = UIColor.whiteColor()
+      detailText.contentOffset = CGPoint(x: -10,y: -10)
       
       Alamofire.request(.GET, inmate.imageURL).response() {
         (_, _, data, _) in
