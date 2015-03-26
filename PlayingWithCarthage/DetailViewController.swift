@@ -34,8 +34,8 @@ class DetailViewController: UIViewController {
         detail += "\(charge.statuteCode)\n\t\(charge.statuteDesc)\n"
       }
       
-      detail += "\nVINE Registration:\n"
-      detail += "\t Clink to Register for VINE"//"\t\(inmate.vineURL)"
+      detail += "\nVINE Link:\n"
+      detail += "\tTap here to Register for Victim Notification"//"\t\(inmate.vineURL)"
       
       detailText.text = detail
       detailText.textColor = UIColor.whiteColor()
