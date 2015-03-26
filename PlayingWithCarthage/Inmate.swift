@@ -9,6 +9,7 @@
 import Foundation
 
 class Inmate {
+  var idNumber: String!
   var firstName: String!
   var lastName: String!
   var middleName: String!

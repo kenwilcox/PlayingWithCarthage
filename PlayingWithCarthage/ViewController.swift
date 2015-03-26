@@ -40,6 +40,7 @@ class ViewController: UIViewController {
           
           for (index: String, json: JSON) in inmates {
             var inmate = Inmate()
+            inmate.idNumber = json["IDNumber"].stringValue
             inmate.firstName = (json["FirstName"].stringValue as NSString).capitalizedString
             inmate.lastName = (json["LastName"].stringValue as NSString).capitalizedString
             inmate.middleName = (json["MiddleName"].stringValue as NSString).capitalizedString
