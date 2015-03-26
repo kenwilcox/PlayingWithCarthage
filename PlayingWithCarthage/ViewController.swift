@@ -12,11 +12,13 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
   
+  @IBOutlet weak var tableView: UITableView!
   var inmateList: [Inmate] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    loadInmateList()
   }
   
   override func didReceiveMemoryWarning() {
@@ -24,8 +26,8 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func testFecth(sender: AnyObject) {
-    var url = "http://api.canyonco.org/Sheriff/CurrentArrest"
+  func loadInmateList() {
+    var url = "http:api.canyonco.org/Sheriff/CurrentArrest"
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     Alamofire.request(.GET, url)
       .responseJSON { (request, response, data, error) in
@@ -61,9 +63,43 @@ class ViewController: UIViewController {
           println(self.inmateList.count)
           println(self.inmateList[0].arrests[0].arrestDate)
           println("\(self.inmateList[0].charges[0].statuteCode)- \(self.inmateList[0].charges[0].statuteDesc)")
+          
+          self.tableView.reloadData()
         }
     }
   }
   
+}
+
+// MARK: UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return inmateList.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+    let inmate = self.inmateList[indexPath.row]
+    cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
+    return cell
+  }
+}
+
+// MARK: UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
+//  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+//  }
+  
+//  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//  }
+  
+//  func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String {
+//  }
 }
 
