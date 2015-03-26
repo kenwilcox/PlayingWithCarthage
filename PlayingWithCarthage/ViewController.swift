@@ -60,10 +60,6 @@ class ViewController: UIViewController {
             self.inmateList.append(inmate)
           }
           
-          println(self.inmateList.count)
-          println(self.inmateList[0].arrests[0].arrestDate)
-          println("\(self.inmateList[0].charges[0].statuteCode)- \(self.inmateList[0].charges[0].statuteDesc)")
-          
           self.tableView.reloadData()
         }
     }
@@ -93,7 +89,7 @@ extension ViewController: UITableViewDataSource {
     cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
     cell.detailTextLabel?.text = "Arrests: \(inmate.arrests.count)  Charges: \(inmate.charges.count)"
     cell.imageView?.image = UIImage(named: "Placeholder.png")
-    println(inmate.thumbURL)
+    //println(inmate.thumbURL)
     Alamofire.request(.GET, inmate.thumbURL).response() {
       (_, _, data, _) in
       
