@@ -86,11 +86,7 @@
                                 <rect key="frame" x="21" y="490" width="563" height="28"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="3aX-EY-Gjl"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="563" id="M3g-bW-cm3"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="PJz-ED-9dF"/>
-                                    <constraint firstAttribute="height" constant="28" id="gNL-cV-CPc"/>
-                                    <constraint firstAttribute="width" constant="563" id="roY-Yi-jlw"/>
+                                    <constraint firstAttribute="height" constant="28" id="smD-fM-Ibe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,7 +96,7 @@
                                 <rect key="frame" x="21" y="521" width="563" height="61"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="T7q-EY-y5a"/>
+                                    <constraint firstAttribute="height" constant="61" id="Hf7-1l-hC8"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,16 +107,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kL0-GP-gKb" firstAttribute="width" secondItem="XTd-37-7fl" secondAttribute="width" id="42k-MB-PVu"/>
-                            <constraint firstItem="XTd-37-7fl" firstAttribute="top" secondItem="kL0-GP-gKb" secondAttribute="bottom" constant="3" id="594-vd-acB"/>
                             <constraint firstItem="DmZ-PN-Kkb" firstAttribute="top" secondItem="bpK-gU-MpL" secondAttribute="bottom" id="5oC-Ho-b9N"/>
+                            <constraint firstItem="kL0-GP-gKb" firstAttribute="trailing" secondItem="kSg-OF-udP" secondAttribute="trailingMargin" id="Dla-3i-Q6s"/>
                             <constraint firstItem="DmZ-PN-Kkb" firstAttribute="leading" secondItem="kSg-OF-udP" secondAttribute="leading" id="Fta-Ln-hLn"/>
                             <constraint firstItem="1Ln-a6-veD" firstAttribute="top" secondItem="DmZ-PN-Kkb" secondAttribute="bottom" id="GuG-Uc-dAB"/>
-                            <constraint firstItem="XTd-37-7fl" firstAttribute="leading" secondItem="kSg-OF-udP" secondAttribute="leadingMargin" constant="5" id="L0C-By-XaK"/>
-                            <constraint firstItem="kL0-GP-gKb" firstAttribute="leading" secondItem="kSg-OF-udP" secondAttribute="leadingMargin" constant="5" id="bt8-HP-3pD"/>
-                            <constraint firstItem="XTd-37-7fl" firstAttribute="trailing" secondItem="kSg-OF-udP" secondAttribute="trailingMargin" id="kVx-HZ-Z2F"/>
-                            <constraint firstItem="1Ln-a6-veD" firstAttribute="top" secondItem="XTd-37-7fl" secondAttribute="bottom" constant="18" id="pHy-9H-MNN"/>
+                            <constraint firstItem="XTd-37-7fl" firstAttribute="top" secondItem="kL0-GP-gKb" secondAttribute="bottom" constant="3" id="HII-aZ-gxu"/>
+                            <constraint firstItem="XTd-37-7fl" firstAttribute="leading" secondItem="kSg-OF-udP" secondAttribute="leadingMargin" constant="5" id="RkX-4l-eTi"/>
+                            <constraint firstItem="kL0-GP-gKb" firstAttribute="leading" secondItem="kSg-OF-udP" secondAttribute="leadingMargin" constant="5" id="eWK-Tp-1Nh"/>
+                            <constraint firstItem="1Ln-a6-veD" firstAttribute="top" secondItem="XTd-37-7fl" secondAttribute="bottom" constant="18" id="gxY-kj-YQg"/>
                             <constraint firstAttribute="trailing" secondItem="DmZ-PN-Kkb" secondAttribute="trailing" id="xSR-7s-h3s"/>
+                            <constraint firstItem="XTd-37-7fl" firstAttribute="trailing" secondItem="kSg-OF-udP" secondAttribute="trailingMargin" id="ymG-s7-KUw"/>
                         </constraints>
                     </view>
                     <connections>
