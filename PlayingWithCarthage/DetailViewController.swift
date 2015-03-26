@@ -33,6 +33,10 @@ class DetailViewController: UIViewController {
       for (charge:Charge) in inmate.charges {
         detail += "\(charge.statuteCode)\n\t\(charge.statuteDesc)\n"
       }
+      
+      detail += "\nVINE Registration:\n"
+      detail += "\t\(inmate.vineURL)"
+      
       detailText.text = detail
       detailText.textColor = UIColor.whiteColor()
       detailText.contentOffset = CGPoint(x: -10,y: -10)
