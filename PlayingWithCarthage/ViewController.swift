@@ -24,18 +24,20 @@ class ViewController: UIViewController {
   
   @IBAction func testFecth(sender: AnyObject) {
     var url = "http://api.canyonco.org/Sheriff/CurrentArrest"
-    Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue("application/json",forKey: "Accept")
+    //Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue("application/json",forKey: "Accept")
     
     Alamofire.request(.GET, url)
       .validate(contentType: ["application/json"])
       //.validate(Accept: ["application/json"])
-      .response { (request, response, data, error) in
+      .responseJSON { (request, response, data, error) in
         if error != nil {
           NSLog("Error: \(error)")
           println(request)
           println(response)
         } else {
           NSLog("Success: \(url)")
+//          println(request)
+//          println(response)
           var json = JSON(data!)
           //var name = json[0]["FirstName"].stringValue
           //println("name = \(name)")
