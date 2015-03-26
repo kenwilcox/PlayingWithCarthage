@@ -13,17 +13,29 @@ import SwiftyJSON
 class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+  var refreshControl:UIRefreshControl!
   var inmateList: [Inmate] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.refreshControl = UIRefreshControl()
+    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+    self.tableView.addSubview(refreshControl)
+    
     loadInmateList()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func refresh(sender:AnyObject)
+  {
+    loadInmateList()
   }
   
   func loadInmateList() {
@@ -60,6 +72,7 @@ class ViewController: UIViewController {
             self.inmateList.append(inmate)
           }
           
+          self.refreshControl.endRefreshing()
           self.tableView.reloadData()
         }
     }
