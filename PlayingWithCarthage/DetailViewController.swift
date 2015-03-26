@@ -35,11 +35,15 @@ class DetailViewController: UIViewController {
       }
       
       detail += "\nVINE Registration:\n"
-      detail += "\t\(inmate.vineURL)"
+      detail += "\t Clink to Register for VINE"//"\t\(inmate.vineURL)"
       
       detailText.text = detail
       detailText.textColor = UIColor.whiteColor()
       detailText.contentOffset = CGPoint(x: -10,y: -10)
+      
+      var gesture = UITapGestureRecognizer(target: self, action: Selector("userTappedOnLink:"))
+      detailText.userInteractionEnabled = true
+      detailText.addGestureRecognizer(gesture)
       
       Alamofire.request(.GET, inmate.imageURL).response() {
         (_, _, data, _) in
@@ -55,4 +59,8 @@ class DetailViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  func userTappedOnLink(recognizer: UITapGestureRecognizer) {
+    var url = NSURL(string: inmate.vineURL)!
+    UIApplication.sharedApplication().openURL(url)
+  }
 }
