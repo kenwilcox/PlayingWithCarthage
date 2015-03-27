@@ -15,6 +15,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   var refreshControl:UIRefreshControl!
   var inmateList: [Inmate] = []
+  let imageCache = NSCache()
+  let placeHolderImage = UIImage(named: "Placeholder.png")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -101,15 +103,20 @@ extension ViewController: UITableViewDataSource {
     let inmate = self.inmateList[indexPath.row]
     cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
     cell.detailTextLabel?.text = "Arrests: \(inmate.arrests.count)  Charges: \(inmate.charges.count)"
-    cell.imageView?.image = UIImage(named: "Placeholder.png")
-    //println(inmate.thumbURL)
-    Alamofire.request(.GET, inmate.thumbURL).response() {
-      (_, _, data, _) in
-      
-      let image = UIImage(data: data! as NSData)
-      cell.imageView?.image = image
-    }
+    cell.imageView?.image = placeHolderImage
     
+    //println(inmate.thumbURL)
+    if let image = self.imageCache.objectForKey(inmate.thumbURL) as? UIImage {
+      cell.imageView?.image = image
+    } else {
+      Alamofire.request(.GET, inmate.thumbURL).response() {
+        (_, _, data, _) in
+        
+        let image = UIImage(data: data! as NSData)
+        self.imageCache.setObject(image!, forKey: inmate.thumbURL)
+        cell.imageView?.image = image
+      }
+    }
     return cell
   }
   
