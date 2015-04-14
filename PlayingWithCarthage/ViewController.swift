@@ -83,7 +83,7 @@ class ViewController: UIViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toDetail" {
       if sender != nil {
-        var detailVC = segue.destinationViewController as DetailViewController
+        var detailVC = segue.destinationViewController as! DetailViewController
         detailVC.inmate = sender as? Inmate
       }
     }
@@ -99,7 +99,7 @@ extension ViewController: UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+    let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
     let inmate = self.inmateList[indexPath.row]
     cell.textLabel?.text = "\(inmate.firstName) \(inmate.middleName) \(inmate.lastName)"
     cell.detailTextLabel?.text = "Arrests: \(inmate.arrests.count)  Charges: \(inmate.charges.count)"
@@ -112,7 +112,7 @@ extension ViewController: UITableViewDataSource {
       Alamofire.request(.GET, inmate.thumbURL).response() {
         (_, _, data, _) in
         
-        let image = UIImage(data: data! as NSData)
+        let image = UIImage(data: data! as! NSData)
         self.imageCache.setObject(image!, forKey: inmate.thumbURL)
         cell.imageView?.image = image
       }

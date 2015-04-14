@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
       Alamofire.request(.GET, inmate.imageURL).response() {
         (_, _, data, _) in
         
-        let image = UIImage(data: data! as NSData)
+        let image = UIImage(data: data! as! NSData)
         self.imageView.image = image
       }
     }
